@@ -1,0 +1,20 @@
+services:
+  tomcat:
+    image: eclipse-temurin:8u462-b08-jre
+    hostname: tomcat
+    user: ubuntu
+    tty: true
+    command:
+      - "/opt/apache-tomcat/bin/catalina.sh"
+      - run
+    ports:
+      - "8080:8080"
+    volumes:
+      - "./:/home/ubuntu/workspace/"
+      - "./tomcat/opt/apache-tomcat/:/opt/apache-tomcat/"
+      - "./tomcat/var/opt/:/var/opt/"
+    environment:
+      - LANG=ja_JP.UTF-8
+      - CATALINA_HOME=/opt/apache-tomcat
+      - CATALINA_BASE=/var/opt/apache-tomcat/example
+    working_dir: "/home/ubuntu/"
