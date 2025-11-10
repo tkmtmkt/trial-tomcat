@@ -20,7 +20,7 @@ WSLで実行した場合、以下のURLでアクセスする。
 ### 補足
 
 ```
-$ tree -F --dirsfirst --charset=ascii trial-tomcat -L 4 -I "*.gz"
+$ tree -F --dirsfirst --charset=ascii trial-tomcat -L 6 -I "*.gz"
 trial-tomcat/
 |-- bin/
 |   |-- down.sh*
@@ -29,14 +29,16 @@ trial-tomcat/
 |   |-- ps.sh*
 |   |-- setup.sh*
 |   `-- up.sh*
-|-- tomcat/
-|   |-- opt/
-|   |   |-- apache-tomcat -> apache-tomcat-9.0.111/
-|   |   `-- apache-tomcat-9.0.111/
-|   `-- var/
-|       `-- opt/
-|           `-- apache-tomcat/
-|               `-- example/
+|-- docker/
+|   `-- tomcat/
+|       |-- opt/
+|       |   `-- tomcat/
+|       |       |-- apache-tomcat-9.0.111/
+|       |       `-- current -> apache-tomcat-9.0.111/
+|       `-- var/
+|           `-- opt/
+|               `-- tomcat/
+|                   `-- example/
 |-- README.md
 `-- docker-compose.yml
 ```

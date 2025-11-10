@@ -8,13 +8,13 @@ set -o nounset
 set -o pipefail
 #set -o verbose
 
-CATALINA_HOME=/opt/apache-tomcat
-CATALINA_BASE=/var/opt/apache-tomcat/example
+CATALINA_HOME=/opt/tomcat/current
+CATALINA_BASE=/var/opt/tomcat/example
 MAJOR_VERSION=9
 MINOR_VERSION=0.111
 VERSION=${MAJOR_VERSION}.${MINOR_VERSION}
-TOMCAT_HOME=${BASE_DIR}/tomcat${CATALINA_HOME}
-TOMCAT_BASE=${BASE_DIR}/tomcat${CATALINA_BASE}
+TOMCAT_HOME=${BASE_DIR}/docker/tomcat${CATALINA_HOME}
+TOMCAT_BASE=${BASE_DIR}/docker/tomcat${CATALINA_BASE}
 TOMCAT_DIR=${TOMCAT_HOME}-${VERSION}
 TOMCAT_ARCHIVE=${TOMCAT_DIR}.tar.gz
 TOMCAT_URL=https://dlcdn.apache.org/tomcat/tomcat-${MAJOR_VERSION}/v${VERSION}/bin/${TOMCAT_ARCHIVE##*/}

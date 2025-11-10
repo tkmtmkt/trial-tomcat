@@ -1,20 +1,22 @@
 services:
   tomcat:
-    image: eclipse-temurin:8u462-b08-jre
+    #image: eclipse-temurin:8u462-b08-jre
+    image: eclipse-temurin:21.0.9_10-jre
     hostname: tomcat
     user: ubuntu
     tty: true
     command:
-      - "/opt/apache-tomcat/bin/catalina.sh"
+      - "/opt/tomcat/current/bin/catalina.sh"
       - run
     ports:
       - "8080:8080"
     volumes:
       - "./:/home/ubuntu/workspace/"
-      - "./tomcat/opt/apache-tomcat/:/opt/apache-tomcat/"
-      - "./tomcat/var/opt/:/var/opt/"
+      - "./docker/tomcat/opt/tomcat/:/opt/tomcat/"
+      - "./docker/tomcat/var/opt/tomcat/:/var/opt/tomcat/"
     environment:
       - LANG=ja_JP.UTF-8
-      - CATALINA_HOME=/opt/apache-tomcat
-      - CATALINA_BASE=/var/opt/apache-tomcat/example
+      - JAVA_HOME=/opt/java/openjdk
+      - CATALINA_HOME=/opt/tomcat/current
+      - CATALINA_BASE=/var/opt/tomcat/example
     working_dir: "/home/ubuntu/"
