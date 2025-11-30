@@ -3,11 +3,14 @@
 ### 操作
 
 ```sh
-# 初期設定（tomcatをダウンロードしてインスタンス作成まで行う）
-bin/setup.sh
-
-# tomcatインスタンスを起動する
+# tomcatコンテナを起動する
 bin/up.sh
+
+# tomcatコンテナのログを確認する
+bin/logs.sh
+
+# tomcatコンテナを停止する
+bin/down.sh
 ```
 
 chromebook のターミナルで実行した場合、以下のURLでアクセスする。
@@ -20,25 +23,30 @@ WSLで実行した場合、以下のURLでアクセスする。
 ### 補足
 
 ```
-$ tree -F --dirsfirst --charset=ascii trial-tomcat -L 6 -I "*.gz"
+$ tree -F --dirsfirst --charset=ascii trial-tomcat -L 7
 trial-tomcat/
 |-- bin/
 |   |-- down.sh*
 |   |-- exec.sh*
 |   |-- logs.sh*
 |   |-- ps.sh*
-|   |-- setup.sh*
 |   `-- up.sh*
 |-- docker/
 |   `-- tomcat/
-|       |-- opt/
-|       |   `-- tomcat/
-|       |       |-- apache-tomcat-9.0.111/
-|       |       `-- current -> apache-tomcat-9.0.111/
-|       `-- var/
-|           `-- opt/
-|               `-- tomcat/
-|                   `-- example/
+|       |-- var/
+|       |   `-- opt/
+|       |       `-- tomcat/
+|       |           `-- example/
+|       |               |-- bin/
+|       |               |-- conf/
+|       |               |-- lib/
+|       |               |-- logs/
+|       |               |-- temp/
+|       |               |-- webapps/
+|       |               |-- work/
+|       |               `-- sample.war
+|       |-- docker-entrypoint.sh*
+|       `-- Dockerfile
 |-- README.md
 `-- docker-compose.yml
 ```
